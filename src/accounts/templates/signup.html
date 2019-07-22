@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+{% load static %}
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    <img src="{% static 'accounts/time_capsule.png' %}" alt="error" width="150">
+  </a>
+
+  
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'login' %}">Login <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </nav><br>
+
+<div class="container jumbotron">
+  <h2>Sign up</h2>
+  <hr>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Sign up</button>
+  </form>
+  </div> 
+{% endblock %}
